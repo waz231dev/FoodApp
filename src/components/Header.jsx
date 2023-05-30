@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const Title = () => {
     return (
         <a href="/" className="inline-block w-16">
@@ -6,6 +8,9 @@ const Title = () => {
     );
 }
 const Header = () => {
+
+    const [isLoggedin, setIsLoggedin] = useState(false);
+
     return (
         <div className="m-4 p-4 bg-black rounded-xl flex justify-between">
             <Title />
@@ -17,6 +22,10 @@ const Header = () => {
                     <li>Cart</li>
                 </ul>
             </div>
+            {
+                isLoggedin ? <button className="text-white" onClick={() => setIsLoggedin(false)}>Logout</button> : <button className="text-white" onClick={() => setIsLoggedin(true)}>Login</button>
+            }
+
         </div>
     );
 }
